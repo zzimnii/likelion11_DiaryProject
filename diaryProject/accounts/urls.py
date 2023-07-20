@@ -2,6 +2,7 @@ from django.urls import path, include
 from rest_framework.routers import SimpleRouter
 from . import views
 
+
 user_router = SimpleRouter()
 user_router.register('user',views.UserViewSet)
 
