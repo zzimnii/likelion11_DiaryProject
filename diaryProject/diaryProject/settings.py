@@ -30,6 +30,13 @@ INSTALLED_APPS = [
 
     'posts',
     'accounts',
+
+    'rest_framework.authtoken',
+    'dj_rest_auth',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'rest_auth.registration',
 ]
 
 MIDDLEWARE = [
@@ -42,11 +49,13 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-#REST_FRAMEWORK = {
-#    'DEFAULT_AUTHENTICATION_CLASSES': [
-#        'rest_framework.authentication.SessionAuthentication',
-#    ],
-#}
+REST_FRAMEWORK = {
+	'DEFAULT_AUTHENTICATION_CLASSES': [
+    'rest_framework.authentication.TokenAuthentication', 
+    ],
+}
+
+SITE_ID = 1
 
 ROOT_URLCONF = 'diaryProject.urls'
 
