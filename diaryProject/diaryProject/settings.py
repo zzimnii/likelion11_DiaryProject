@@ -37,9 +37,13 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'rest_auth.registration',
+
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+    
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -54,6 +58,29 @@ MIDDLEWARE = [
 #     'rest_framework.authentication.TokenAuthentication', 
 #     ],
 # }
+
+REST_FRAMEWORK = {
+'DEFAULT_RENDERER_CLASSES': (
+'djangorestframework_camel_case.render.CamelCaseJSONRenderer',
+'djangorestframework_camel_case.render.CamelCaseBrowsableAPIRenderer',
+),
+'DEFAULT_PARSER_CLASSES': (
+'djangorestframework_camel_case.parser.CamelCaseFormParser',
+'djangorestframework_camel_case.parser.CamelCaseMultiPartParser',
+'djangorestframework_camel_case.parser.CamelCaseJSONParser',
+),
+}
+
+CORS_ORIGIN_ALLOW_ALL = True 
+
+CORS_ALLOW_METHODS = [
+'DELETE',
+'GET',
+'OPTIONS',
+'PATCH',
+'POST',
+'PUT',
+]
 
 SITE_ID = 1
 
