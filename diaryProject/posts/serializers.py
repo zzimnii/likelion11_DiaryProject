@@ -5,15 +5,17 @@ from django.contrib.auth.models import User
 
 
 class PostSerializer(ModelSerializer):
-    writer = serializers.ReadOnlyField(source = 'writer.username')
+    # writer = serializers.ReadOnlyField(source = 'writer.username')
 
     class Meta:
         model = Post
-        fields = [ 'id', 'title', 'content', 'writer' ]
+        fields = [ 'id', 'title', 'content' ]
+        # fields = [ 'id', 'title', 'content', 'writer' ]
 
 class CommentSerializer(ModelSerializer):
-    writer = serializers.ReadOnlyField(source = 'writer.username')
+    # writer = serializers.ReadOnlyField(source = 'writer.username')
     
     class Meta:
         model = Comment
-        fields = [ 'id', 'comment', 'post', 'writer' ]
+        fields = [ 'id', 'comment', 'post' ]
+        # fields = [ 'id', 'comment', 'post', 'writer' ]
